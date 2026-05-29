@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>OLYMPIAD HUB</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.96)),
+url('7.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+overflow-x:hidden;
+}
+
+.glow{
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+background:rgba(255,255,255,.03);
+filter:blur(120px);
+z-index:-1;
+animation:float 8s infinite alternate;
+}
+
+.glow:nth-child(1){
+top:-100px;
+left:-100px;
+}
+
+.glow:nth-child(2){
+right:-100px;
+bottom:-100px;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(80px);
+}
+
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(15,15,15,.55);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:68px;
+height:68px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo h1{
+font-size:30px;
+font-weight:800;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#d1d5db;
+font-size:17px;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:999px;
+border:none;
+cursor:pointer;
+font-weight:600;
+font-size:16px;
+color:white;
+background:linear-gradient(135deg,#4b5563,#6b7280);
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-5px) scale(1.05);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 30px 80px;
+}
+
+.hero-box{
+max-width:1200px;
+width:100%;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:40px;
+align-items:center;
+}
+
+.hero-left h2{
+font-size:92px;
+font-weight:800;
+line-height:1.05;
+margin-bottom:25px;
+background:linear-gradient(to right,#fff,#9ca3af);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-left p{
+font-size:22px;
+line-height:1.8;
+color:#d1d5db;
+}
+
+.hero-buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.glass{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border-radius:35px;
+box-shadow:0 0 40px rgba(255,255,255,.04);
+}
+
+.hero-right{
+padding:35px;
+}
+
+.timer{
+font-size:70px;
+font-weight:800;
+letter-spacing:4px;
+margin:25px 0;
+text-align:center;
+}
+
+.timer-buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.stats{
+margin-top:35px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.stat{
+padding:20px;
+border-radius:25px;
+background:rgba(255,255,255,.04);
+text-align:center;
+}
+
+.stat h3{
+font-size:35px;
+font-weight:800;
+}
+
+section{
+padding:110px 50px;
+}
+
+.section-title{
+font-size:58px;
+font-weight:800;
+text-align:center;
+margin-bottom:70px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.card,
+.exam{
+padding:35px;
+transition:.35s;
+}
+
+.card:hover,
+.exam:hover{
+transform:translateY(-10px);
+}
+
+.card h3,
+.exam h3{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.card ul{
+list-style:none;
+}
+
+.card ul li{
+margin:12px 0;
+color:#d1d5db;
+}
+
+.file-name{
+margin-top:15px;
+color:#9ca3af;
+word-break:break-all;
+}
+
+.focus{
+background:black;
+}
+
+footer{
+padding:50px;
+text-align:center;
+background:#050505;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:980px){
+
+.hero-box{
+grid-template-columns:1fr;
+}
+
+.hero-left h2{
+font-size:60px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+padding:15px 20px;
+}
+
+nav ul{
+display:none;
+}
+
+.hero-left h2{
+font-size:46px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+section{
+padding:90px 20px;
+}
+
+.timer{
+font-size:48px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="glow"></div>
+<div class="glow"></div>
+
+<nav>
+
+<div class="logo">
+
+<img src="8.jpg">
+
+<h1>PPW OLYMPIAD HUB</h1>
+
+</div>
+
+<ul>
+
+<li><a href="#subjects">สรุป</a></li>
+<li><a href="#exams">ข้อสอบ</a></li>
+
+<li>
+<button class="btn" onclick="toggleFocus()">
+🎯 Focus
+</button>
+</li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-box">
+
+<div class="hero-left">
+
+<h2>
+อ่านให้สุด
+<br>
+แล้วสอบติด
+</h2>
+
+<p>
+รวมสรุปและข้อสอบ สอวน พร้อมระบบเปิดไฟล์ในเว็บ
+สำหรับสายอ่านจริงจัง
+</p>
+
+<div class="hero-buttons">
+
+<a href="#subjects" class="btn">
+📚 เริ่มอ่าน
+</a>
+
+<a href="#exams" class="btn">
+📝 ข้อสอบ
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right glass">
+
+<h2>⏱ Study Timer</h2>
+
+<div class="timer" id="timer">
+00:00:00
+</div>
+
+<div class="timer-buttons">
+
+<button class="btn" onclick="startTimer()">
+▶ Start
+</button>
+
+<button class="btn" onclick="pauseTimer()">
+⏸ Pause
+</button>
+
+<button class="btn" onclick="resetTimer()">
+🔄 Reset
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>5</h3>
+<p>วิชาหลัก</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>หัวข้อ</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>อ่านได้</p>
+</div>
+
+<div class="stat">
+<h3>A+</h3>
+<p>Focus</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="subjects">
+
+<h2 class="section-title">
+📚 สรุปเนื้อหา
+</h2>
+
+<div class="grid">
+
+<div class="card glass">
+<h3>⚡ ฟิสิกส์</h3>
+
+<ul>
+<li>• กลศาสตร์</li>
+<li>• คลื่น</li>
+<li>• ไฟฟ้า</li>
+</ul>
+
+<input type="file" id="physicsSummary" hidden>
+
+<div style="margin-top:25px;display:flex;gap:12px;flex-wrap:wrap;">
+
+<button class="btn"
+onclick="document.getElementById('physicsSummary').click()">
+📤 ใส่สรุป
+</button>
+
+<button class="btn"
+onclick="openFile('physicsSummary')">
+🚀 เปิดสรุป
+</button>
+
+</div>
+
+<p class="file-name" id="physicsSummaryName">
+ยังไม่มีไฟล์
+</p>
+
+</div>
+
+<div class="card glass">
+<h3>🧪 เคมี</h3>
+
+<ul>
+<li>• อะตอม</li>
+<li>• พันธะเคมี</li>
+<li>• กรดเบส</li>
+</ul>
+
+<input type="file" id="chemSummary" hidden>
+
+<div style="margin-top:25px;display:flex;gap:12px;flex-wrap:wrap;">
+
+<button class="btn"
+onclick="document.getElementById('chemSummary').click()">
+📤 ใส่สรุป
+</button>
+
+<button class="btn"
+onclick="openFile('chemSummary')">
+🚀 เปิดสรุป
+</button>
+
+</div>
+
+<p class="file-name" id="chemSummaryName">
+ยังไม่มีไฟล์
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="exams">
+
+<h2 class="section-title">
+📝 ข้อสอบเก่า
+</h2>
+
+<div class="grid">
+
+<div class="exam glass">
+
+<h3>⚡ ฟิสิกส์</h3>
+
+<input type="file" id="physicsFile" hidden>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
+
+<button class="btn"
+onclick="document.getElementById('physicsFile').click()">
+📤 ใส่ไฟล์
+</button>
+
+<button class="btn"
+onclick="openFile('physicsFile')">
+🚀 เปิดไฟล์
+</button>
+
+</div>
+
+<p class="file-name" id="physicsName">
+ยังไม่มีไฟล์
+</p>
+
+</div>
+
+<div class="exam glass">
+
+<h3>🧪 เคมี</h3>
+
+<input type="file" id="chemFile" hidden>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
+
+<button class="btn"
+onclick="document.getElementById('chemFile').click()">
+📤 ใส่ไฟล์
+</button>
+
+<button class="btn"
+onclick="openFile('chemFile')">
+🚀 เปิดไฟล์
+</button>
+
+</div>
+
+<p class="file-name" id="chemName">
+ยังไม่มีไฟล์
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>
+OLYMPIAD HUB
+</h2>
+
+<p>
+Study Hard • Stay Focus • Reach Your Dream
+</p>
+
+</footer>
+
+<script>
+
+function toggleFocus(){
+
+document.body.classList.toggle("focus");
+
+}
+
+/* TIMER */
+
+let seconds = 0;
+let timer = null;
+
+function updateTimer(){
+
+let hrs = String(Math.floor(seconds / 3600)).padStart(2,'0');
+let mins = String(Math.floor((seconds % 3600)/60)).padStart(2,'0');
+let secs = String(seconds % 60).padStart(2,'0');
+
+document.getElementById("timer").innerText =
+`${hrs}:${mins}:${secs}`;
+
+}
+
+function startTimer(){
+
+if(timer !== null) return;
+
+timer = setInterval(() => {
+
+seconds++;
+updateTimer();
+
+},1000);
+
+}
+
+function pauseTimer(){
+
+clearInterval(timer);
+timer = null;
+
+}
+
+function resetTimer(){
+
+clearInterval(timer);
+timer = null;
+
+seconds = 0;
+
+updateTimer();
+
+}
+
+/* FILE SYSTEM - FIXED VERSION */
+
+const uploadedFiles = {};
+
+function setupUploader(inputId,nameId){
+
+const input = document.getElementById(inputId);
+
+if(!input) return;
+
+const savedName =
+localStorage.getItem(inputId + "_name");
+
+if(savedName){
+
+document.getElementById(nameId).innerText =
+savedName;
+
+}
+
+input.addEventListener("change",function(){
+
+const file = this.files[0];
+
+if(!file) return;
+
+uploadedFiles[inputId] = file;
+
+localStorage.setItem(
+inputId + "_name",
+file.name
+);
+
+document.getElementById(nameId).innerText =
+file.name;
+
+});
+
+}
+
+function openFile(id){
+
+const file = uploadedFiles[id];
+
+if(file){
+
+const fileURL = URL.createObjectURL(file);
+window.open(fileURL,"_blank");
+
+}else{
+
+const savedName = localStorage.getItem(id + "_name");
+if(savedName){
+alert("กรุณากดปุ่มเพื่อเลือกไฟล์ " + savedName + " อีกครั้งก่อนเปิดครับ");
+}else{
+alert("ยังไม่มีไฟล์");
+}
+
+}
+
+}
+
+setupUploader(
+"physicsSummary",
+"physicsSummaryName"
+);
+
+setupUploader(
+"chemSummary",
+"chemSummaryName"
+);
+
+setupUploader(
+"physicsFile",
+"physicsName"
+);
+
+setupUploader(
+"chemFile",
+"chemName"
+);
+
+</script>
+
+</body>
+</html>
